@@ -22,6 +22,10 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
         return MyViewHolder(view,context)
     }
 
+    override fun getItemCount(): Int {
+        return taskList.size
+    }
+
 
     fun setList(taskListInput: ArrayList<Task>){
 
@@ -53,15 +57,13 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
             }
         }
 
-    override fun getItemCount(): Int {
-        return taskList.size
-    }
+
         fun bind(position: Int){
             pos=position
             val currentTask= taskList.get(position)
             task.text=currentTask.task
             dueDate.text=currentTask.due
-            urgent.text=currentTask.urgent
+            urgent.text= currentTask.urgent.toString()
             Glide.with(context).load(taskList[position])
                 .apply(RequestOptions().override(300,300))
                 .apply(RequestOptions().centerCrop())
