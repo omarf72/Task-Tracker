@@ -7,50 +7,50 @@
     android:orientation="vertical"
     tools:context=".AddTaskFragment">
 
+
     <EditText
         android:id="@+id/task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task :" />
-
-
+        android:layout_marginTop="40dp"
+        android:hint="Task:" />
 
     <EditText
         android:id="@+id/due_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Due" />
+        android:hint="Due" />
 
     <EditText
         android:id="@+id/hours"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Hours" />
+        android:hint="Hours" />
 
     <EditText
         android:id="@+id/people"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="People" />
+        android:hint="People" />
 
     <EditText
         android:id="@+id/location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Location" />
+        android:hint="Location" />
 
     <EditText
         android:id="@+id/Notes"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
-        android:text="Notes:"
+        android:hint="Notes:"
         android:textAlignment="inherit" />
 
 
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:text="Urgent:"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layoutDirection="rtl" />
 
     <LinearLayout
