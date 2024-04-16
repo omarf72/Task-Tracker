@@ -19,9 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         setContentView(R.layout.activity_main)
-
         val toolbar=findViewById<MaterialToolbar>(R.id.tool_bar)
         setSupportActionBar(toolbar)
         val navController=findNavController(R.id.nav_host_fragment)
@@ -41,10 +39,5 @@ class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
     }
-
-
-
-
-
 
 }
