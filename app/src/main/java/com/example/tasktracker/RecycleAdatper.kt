@@ -52,7 +52,7 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
 
         init {
             itemView.setOnClickListener{
-                val action=HomeFragmentDirections.actionHomeFragmentToViewTaskFragment(pos)
+                val action=HomeFragmentDirections.actionHomeFragmentToViewTaskFragment()
                 navController.navigate(action)
             }
         }

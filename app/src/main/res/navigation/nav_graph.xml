@@ -18,4 +18,8 @@
         android:name="com.example.tasktracker.AddTaskFragment"
         android:label="fragment_view_task"
         tools:layout="@layout/fragment_add_task" />
+    <fragment
+        android:id="@+id/viewTaskFragment"
+        android:name="com.example.tasktracker.ViewTaskFragment"
+        android:label="ViewTaskFragment" />
 </navigation>
