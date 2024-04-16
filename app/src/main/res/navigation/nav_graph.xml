@@ -17,7 +17,11 @@
         android:id="@+id/addtaskFragment"
         android:name="com.example.tasktracker.AddTaskFragment"
         android:label="fragment_view_task"
-        tools:layout="@layout/fragment_add_task" />
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addtaskFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/viewTaskFragment"
         android:name="com.example.tasktracker.ViewTaskFragment"

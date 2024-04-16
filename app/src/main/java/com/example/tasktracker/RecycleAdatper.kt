@@ -62,7 +62,7 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
             pos=position
             val currentTask= taskList.get(position)
             task.text=currentTask.task
-            dueDate.text=currentTask.due
+            dueDate.text=currentTask.dueDate
             urgent.text= currentTask.urgent.toString()
             Glide.with(context).load(taskList[position])
                 .apply(RequestOptions().override(300,300))

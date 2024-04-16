@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 
-class TaskViewModel : ViewModel() {
+/*class TaskViewModel : ViewModel() {
 
     private val _taskId = MutableLiveData<Int>()
     val taskId: LiveData<Int> get() = _taskId
@@ -20,4 +20,4 @@ class TaskViewModel : ViewModel() {
 
 
 
-}
+}*/
