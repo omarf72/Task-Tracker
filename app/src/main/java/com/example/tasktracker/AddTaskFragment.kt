@@ -17,6 +17,11 @@ class AddTaskFragment : Fragment() {
 
     private val binding get()=  _binding
 
+    //private val viewModel
+
+    lateinit var task:Task
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
