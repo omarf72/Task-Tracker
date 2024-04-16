@@ -19,9 +19,9 @@ interface TaskInfoDao {
     fun delete(task: Task)
 
     @Query("SELECT * FROM tasks")
-    fun getAllTasks(): LiveData<List<Task>> // Return LiveData<List<Task>>
+    fun getAllTasks(): LiveData<List<Task>> 
 
     @Query("SELECT * FROM tasks WHERE taskId = :taskId")
-    fun getTaskById(taskId: Int): LiveData<Task?> // Return LiveData<Task?>
+    fun getTaskById(taskId: Int): LiveData<Task?>
 
 }
