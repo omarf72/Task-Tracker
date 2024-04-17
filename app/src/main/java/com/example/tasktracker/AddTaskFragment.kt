@@ -21,7 +21,7 @@ class AddTaskFragment : Fragment() {
 
    private val viewModel:TasksDataViewModel by activityViewModels{
        TasksDataViewModel.TasksViewModelFactory(
-           (activity?.application as TaskApplication).database.taskInfoDao
+           (activity?.application as TaskApplication).database.taskInfoDao()
        )
    }
 
@@ -30,6 +30,7 @@ class AddTaskFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
 
     }
