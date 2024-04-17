@@ -1,11 +1,11 @@
 package com.example.tasktracker
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import androidx.lifecycle.LiveData
 
 @Dao
 interface TaskInfoDao {
@@ -22,6 +22,8 @@ interface TaskInfoDao {
     fun getAllTasks(): LiveData<List<Task>> 
 
     @Query("SELECT * FROM tasks WHERE taskId = :taskId")
-    fun getTaskById(taskId: Int): LiveData<Task?>
+    fun getTaskById(taskId: Int): List<Task?>
+
+
 
 }

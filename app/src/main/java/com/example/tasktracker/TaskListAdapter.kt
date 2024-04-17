@@ -1,17 +1,8 @@
 package com.example.tasktracker
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.card.MaterialCardView
-import org.w3c.dom.Text
 import com.example.tasktracker.databinding.FragmentHomeBinding
 
 //import androidx.recyclerview.widget.DiffUtil
@@ -54,10 +45,9 @@ class TaskListAdapter :RecyclerView.Adapter<TaskListAdapter.TaskItemViewHolder>(
 
 
     override fun onBindViewHolder(holder: TaskItemViewHolder, position: Int) {
-        val current=
-        holder.bind(current)
-        //val item = data[position]
-        //holder.bind(item)
+            //holder.bind(current)
+        val item = data[position]
+        holder.bind(item)
     }
 
 
@@ -66,15 +56,15 @@ class TaskListAdapter :RecyclerView.Adapter<TaskListAdapter.TaskItemViewHolder>(
     class TaskItemViewHolder(private var binding: FragmentHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-         fun bind(task: Task) {
-             binding.apply{
-                 task.task=task.task
-                 task.dueDate=task.dueDate
-                 task.urgent=task.urgent
-             }
+        fun bind(task: Task) {
+            binding.apply {
+                task.task = task.task
+                task.dueDate = task.dueDate
+                task.urgent = task.urgent
+            }
 
 
-         }
+        }
 
         /*companion object {
             fun inflateFrom(parent: ViewGroup): TaskItemViewHolder {
@@ -87,10 +77,6 @@ class TaskListAdapter :RecyclerView.Adapter<TaskListAdapter.TaskItemViewHolder>(
         }*/
 
 
-
-
-
-
+    }
     }
 
-}

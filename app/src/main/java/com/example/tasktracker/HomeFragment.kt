@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.Navigation
@@ -21,11 +22,17 @@ import com.example.tasktracker.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
 
-    //private lateinit var recycleView: RecyclerView
-    //private lateinit var recycleAdapter: RecyclerAdapter
+    private lateinit var recycleView: RecyclerView
+    private lateinit var recycleAdapter: TaskListAdapter
 
 
     private var _binding:FragmentHomeBinding?=null
+
+    private val viewModel:TasksDataViewModel by activityViewModels{
+        TasksDataViewModel.TasksViewModelFactory(
+            (activity?.application as TaskApplication).database.taskInfoDao()
+        )
+    }
 
 
 
@@ -38,7 +45,7 @@ class HomeFragment : Fragment() {
         _binding=FragmentHomeBinding.inflate(inflater,container,false)
         val view=binding?.root
 
-        val application= requireNotNull(this.activity).application
+        /*val application= requireNotNull(this.activity).application
 
         val dao=TaskDatabase.getInstance(application).taskInfoDao()
 
@@ -46,22 +53,22 @@ class HomeFragment : Fragment() {
         val viewModel=ViewModelProvider(
             this,viewModelFactory).get(TasksDataViewModel::class.java)
         binding.viewModel=viewModel
-        }
-        //val adapter=TaskListAdapter
+        }*/
+       // val adapter=TaskListAdapter
         //binding.
         // Inflate the layout for this fragment
         //_binding= FragmentHomeBinding.inflate(inflater, container, false)
 
         //val view=binding?.root
 
-        //return view
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyleview?.layoutManager=LinearLayoutManager(this.context)
         recycleView = (_binding!!).recyleview
-        recycleAdapter = RecyclerAdapter(requireContext(), Navigation.findNavController(view))
+        recycleAdapter = TaskListAdapter(requireContext(), Navigation.findNavController(view))
         recycleView.layoutManager = LinearLayoutManager(requireContext())
         recycleView.adapter = recycleAdapter
     }
