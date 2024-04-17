@@ -10,12 +10,16 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+//import androidx.recyclerview.widget.DiffUtil
 
 
-var taskList=ArrayList<Task>()
+/*var taskList=ArrayList<Task>()
+
+
 
 class RecyclerAdapter(val context: Context, var navController : NavController) :
     RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int
     ):  RecyclerAdapter.MyViewHolder {
         val view= LayoutInflater.from(parent.context).inflate(R.layout.task_info,parent,false)
@@ -70,4 +74,4 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
 
         }
     }
-}
+}*/

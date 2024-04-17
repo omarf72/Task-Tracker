@@ -1,5 +1,4 @@
 package com.example.tasktracker
-import android.widget.EditText
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,7 +10,7 @@ data class Task(
     @ColumnInfo(name = "taskName")
     var task: String,
     @ColumnInfo(name = "dueDate")
-    val dueDate: String,
+    var dueDate: String,
     @ColumnInfo(name = "hours")
     val hours: String?,
     @ColumnInfo(name = "people")
@@ -21,7 +20,7 @@ data class Task(
     @ColumnInfo(name = "notes")
     val notes: String?,
     @ColumnInfo(name = "urgency")
-    val urgent: String
+    var urgent: String
 )
 
 

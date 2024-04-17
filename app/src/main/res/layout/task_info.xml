@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.tasktracker.TasksDataViewModel" />
+    </data>
+
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +19,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/total_hours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
@@ -33,7 +40,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/task_id"
+                    android:id="@+id/task"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Task: " />
