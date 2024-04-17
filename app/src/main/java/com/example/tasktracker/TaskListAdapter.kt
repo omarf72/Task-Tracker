@@ -36,11 +36,11 @@ class TaskListAdapter :RecyclerView.Adapter<TaskListAdapter.TaskItemViewHolder>(
     }
 
 
-    //fun setList(taskListInput: ArrayList<Task>){
+    fun setList(taskListInput: List<Task>){
 
-    //taskList=taskListInput;
-    //notifyDataSetChanged()
-    //}
+    data= taskListInput as ArrayList<Task>;
+    notifyDataSetChanged()
+    }
 
 
 

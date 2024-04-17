@@ -1,14 +1,11 @@
 package com.example.tasktracker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktracker.databinding.FragmentHomeBinding
@@ -67,9 +64,18 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyleview?.layoutManager=LinearLayoutManager(this.context)
-        recycleView = (_binding!!).recyleview
-        recycleAdapter = TaskListAdapter(requireContext(), Navigation.findNavController(view))
-        recycleView.layoutManager = LinearLayoutManager(requireContext())
-        recycleView.adapter = recycleAdapter
+        val adapter=TaskListAdapter{
+
+        }
+        binding.recyclerView.adapter = adapter
+        binding?.recyleview?.adapter
+        viewModel.allTasks.observe(this.viewLifecycleOwner) { tasks ->
+            tasks.let {
+                //adapter.setList(it)
+            }
+        }
+        //recycleAdapter = TaskListAdapter(requireContext(), Navigation.findNavController(view))
+        //recycleView.layoutManager = LinearLayoutManager(requireContext())
+        //recycleView.adapter = recycleAdapter
     }
 }

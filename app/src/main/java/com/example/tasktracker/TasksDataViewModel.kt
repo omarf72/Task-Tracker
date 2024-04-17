@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
 
-    val allTasks: LiveData<List<Task>
+    val allTasks: LiveData<List<Task>> = taskInfoDao.getAllTasks()
 
     fun addTask(task: String, dueDate: String, hours: EditText?, people: String, location: String, notes: String, urgency: String){
             val newTask = getNewItemEntry(task,dueDate,hours,people,location,notes,urgency)
