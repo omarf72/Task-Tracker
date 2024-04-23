@@ -9,21 +9,6 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/total_hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:paddingTop="40dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/recyleview"
-        app:layout_constraintStart_toStartOf="@+id/recyleview"
-        app:layout_contraintTop_toTopOf="parent"
-
-
-
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyleview"
         android:layout_width="match_parent"
@@ -34,6 +19,19 @@
         tools:layout_editor_absoulte="-35dp"
 
         />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hours_to_complete_tasks"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/recyleview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.716" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
