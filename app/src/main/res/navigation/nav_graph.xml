@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/addtaskFragment"
         android:name="com.example.tasktracker.AddTaskFragment"
-        android:label="fragment_view_task"
+        android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" >
         <action
             android:id="@+id/action_addtaskFragment_to_homeFragment"
@@ -25,5 +25,9 @@
     <fragment
         android:id="@+id/viewTaskFragment"
         android:name="com.example.tasktracker.ViewTaskFragment"
-        android:label="ViewTaskFragment" />
+        android:label="ViewTaskFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

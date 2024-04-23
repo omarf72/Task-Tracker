@@ -1,10 +1,11 @@
 package com.example.tasktracker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.tasktracker.databinding.FragmentAddTaskBinding
@@ -18,6 +19,8 @@ class AddTaskFragment : Fragment() {
     private var _binding: FragmentAddTaskBinding?=null
 
     private val binding get()=  _binding
+
+
 
    private val viewModel:TasksDataViewModel by activityViewModels{
        TasksDataViewModel.TasksViewModelFactory(
@@ -49,6 +52,7 @@ class AddTaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding?.save?.setOnClickListener{
             addTask()
+
         }
     }
 
@@ -60,13 +64,20 @@ class AddTaskFragment : Fragment() {
 
     private fun addTask(){
         if(isEntryValid()){
+            Log.d("AddTaskFragment","Adding task")
             viewModel.addTask(binding?.task?.text.toString(),
                 binding?.dueDate?.text.toString(),binding?.hours,
                 binding?.people.toString(), binding?.location.toString(),
                 binding?.notes.toString(),binding?.urgent?.text.toString())
+            Log.d("AddTaskFragment", "Task added successfully")
+
 
 
         }
+        else {
+            Log.w("AddTaskFragment", "Invalid entry detected")
+        }
+
         val action=AddTaskFragmentDirections.actionAddtaskFragmentToHomeFragment()
         findNavController().navigate(action)
     }

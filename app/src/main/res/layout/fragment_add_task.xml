@@ -75,24 +75,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/edit"
-            android:layout_width="174dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
-            android:text="Edit" />
-
-        <Button
-            android:id="@+id/save"
-            android:layout_width="157dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-
-            android:text="Save" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Save" />
 
 
 </LinearLayout>

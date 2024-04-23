@@ -1,5 +1,6 @@
 package com.example.tasktracker
 
+import android.util.Log
 import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +14,11 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
 
     fun addTask(task: String, dueDate: String, hours: EditText?, people: String, location: String, notes: String, urgency: String){
             val newTask = getNewItemEntry(task,dueDate,hours,people,location,notes,urgency)
+
+        viewModelScope.launch {
+            Log.d("TasksDataViewModel",newTask.task)
             taskInfoDao.insert(newTask)
+        }
 
     }
 

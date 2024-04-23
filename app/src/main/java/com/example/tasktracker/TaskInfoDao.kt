@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TaskInfoDao {
@@ -22,7 +23,7 @@ interface TaskInfoDao {
     fun getAllTasks(): LiveData<List<Task>> 
 
     @Query("SELECT * FROM tasks WHERE taskId = :taskId")
-    fun getTaskById(taskId: Int): List<Task?>
+    fun getTaskById(taskId: Int): Flow<Task?>
 
 
 
