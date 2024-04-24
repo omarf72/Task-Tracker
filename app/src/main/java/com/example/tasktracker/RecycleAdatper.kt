@@ -58,20 +58,11 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
                 binding.dueDate.text=task.dueDate
                 binding.urgent.text=task.urgent
 
+                itemView.setOnClickListener {
+                    val action = HomeFragmentDirections.actionHomeFragmentToViewTaskFragment(task.taskId)
+                    navController.navigate(action)
+                }
             }
-        //private val task: TextView =itemView.findViewById<TextView>(R.id.task)
-        //private val dueDate: TextView =itemView.findViewById <TextView>(R.id.due_date)
-        //private val urgent:TextView=itemView.findViewById<TextView>(R.id.urgent)
-
-
-        private var pos:Int=0
-
-        init {
-            itemView.setOnClickListener{
-                val action=HomeFragmentDirections.actionHomeFragmentToViewTaskFragment(pos)
-                navController.navigate(action)
-            }
-        }
 
 
         /*fun bind(position: Int){
