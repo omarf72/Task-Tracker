@@ -5,6 +5,7 @@ plugins {
     id ("kotlin-kapt")
     id ("kotlin-parcelize")
 
+
 }
 
 android {

@@ -10,6 +10,12 @@ import kotlinx.coroutines.launch
 
 class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
 
+
+
+
+
+
+
     val allTasks: LiveData<List<Task>> = taskInfoDao.getAllTasks()
 
     fun addTask(task: String, dueDate: String, hours: String, people: String, location: String, notes: String, urgency: String){
@@ -20,6 +26,11 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
             taskInfoDao.insert(newTask)
         }
 
+    }
+    fun deleteAllTasks() {
+        viewModelScope.launch {
+            taskInfoDao.deleteAllTasks()
+        }
     }
 
     fun getTaskById(taskId: Int): LiveData<Task?> {

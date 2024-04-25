@@ -42,6 +42,7 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
     }
 
 
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val current=taskList.get(position)
         //holder.bind(position)
@@ -51,12 +52,14 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
 
 
 
+
+
     inner class MyViewHolder(private var binding: TaskInfoBinding)
         : RecyclerView.ViewHolder(binding.root){
             fun bind(task:Task){
                 binding.task.text=task.task
                 binding.dueDate.text=task.dueDate
-                binding.urgent.text=task.urgent
+                binding.urgent.text
 
                 itemView.setOnClickListener {
                     val action = HomeFragmentDirections.actionHomeFragmentToViewTaskFragment(task.taskId)
@@ -64,17 +67,5 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
                 }
             }
 
-
-        /*fun bind(position: Int){
-            pos=position
-            val currentTask= taskList.get(position)
-            task.text=currentTask.task
-            dueDate.text=currentTask.dueDate
-            urgent.text= currentTask.urgent.toString()
-            Glide.with(context).load(taskList[position])
-               // .apply(RequestOptions().override(300,300))
-               // .apply(RequestOptions().centerCrop())
-
-        }*/
     }
 }

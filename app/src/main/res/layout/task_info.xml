@@ -6,6 +6,10 @@
         <variable
             name="viewModel"
             type="com.example.tasktracker.TasksDataViewModel" />
+        
+        <variable
+            name="isUrgent"
+            type="String" />
     </data>
 
 
@@ -16,6 +20,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
+
 
 
         <com.google.android.material.card.MaterialCardView
@@ -31,21 +36,21 @@
 
                 <TextView
                     android:id="@+id/task"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="@string/task" />
 
                 <TextView
                     android:id="@+id/due_date"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="@string/due" />
 
                 <TextView
                     android:id="@+id/urgent"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="@string/urgent" />

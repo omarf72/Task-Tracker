@@ -1,5 +1,6 @@
 package com.example.tasktracker
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tasktracker.databinding.FragmentAddTaskBinding
 import com.example.tasktracker.databinding.FragmentHomeBinding
 
 
@@ -25,6 +27,12 @@ class HomeFragment : Fragment() {
 
 
     private var _binding:FragmentHomeBinding?=null
+
+    private var _addTaskBinding:FragmentAddTaskBinding?=null
+
+
+
+    private val addTaskBinding get()= _addTaskBinding
 
 
 
@@ -45,27 +53,25 @@ class HomeFragment : Fragment() {
         _binding=FragmentHomeBinding.inflate(inflater,container,false)
         val view=binding?.root
 
-        /*val application= requireNotNull(this.activity).application
 
-        val dao=TaskDatabase.getInstance(application).taskInfoDao()
-
-        val viewModelFactory=TasksDataViewModel.TasksViewModelFactory(dao)
-        val viewModel=ViewModelProvider(
-            this,viewModelFactory).get(TasksDataViewModel::class.java)
-        binding.viewModel=viewModel
-        }*/
-       // val adapter=TaskListAdapter
-        //binding.
-        // Inflate the layout for this fragment
-        //_binding= FragmentHomeBinding.inflate(inflater, container, false)
-
-        //val view=binding?.root
 
         return view
     }
+    private fun deleteAll(){
+        viewModel.deleteAllTasks()
+    }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding?.delete?.setOnClickListener{
+            deleteAll()
+        }
+
+
+
+
 
 
         recycleView = (_binding!!).recyleview
@@ -79,28 +85,8 @@ class HomeFragment : Fragment() {
             }
         }
 
-        //recycleAdapter.setList(viewModel.allTasks)
 
 
-       /* viewModel.allTasks.observe(this.viewLifecycleOwner) { tasks ->
-            tasks.let {
-                recycleView.adapter.setList(it)
-            }
-        }*/
-
-       /* binding?.recyleview?.layoutManager=LinearLayoutManager(this.context)
-        val adapter=TaskListAdapter{
-
-        }
-        binding.recyclerView.adapter = adapter
-        binding?.recyleview?.adapter
-        viewModel.allTasks.observe(this.viewLifecycleOwner) { tasks ->
-            tasks.let {
-                adapter.setList(it)
-            }
-        }
-        //recycleAdapter = TaskListAdapter(requireContext(), Navigation.findNavController(view))
-        //recycleView.layoutManager = LinearLayoutManager(requireContext())
-        //recycleView.adapter = recycleAdapter*/
     }
-}
+
+    }
