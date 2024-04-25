@@ -19,11 +19,15 @@ interface TaskInfoDao {
     @Delete
     fun delete(task: Task)
 
+
     @Query("SELECT * FROM tasks")
     fun getAllTasks(): LiveData<List<Task>> 
 
     @Query("SELECT * FROM tasks WHERE taskId = :taskId")
     fun getTaskById(taskId: Int): Flow<Task?>
+
+    @Query("DELETE FROM tasks")
+    suspend fun deleteAllTasks()
 
 
 
