@@ -3,8 +3,12 @@ plugins {
     id ("org.jetbrains.kotlin.android".toString())
     id("androidx.navigation.safeargs.kotlin".toString())
     id ("kotlin-kapt")
+<<<<<<< HEAD
 
 
+=======
+    id ("kotlin-parcelize")
+>>>>>>> 32edde1a4e7e42d05399fc33166db1e2d7a7fc08
 
 }
 
@@ -64,5 +68,7 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.6.1")
     kapt ("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
+
 
 }

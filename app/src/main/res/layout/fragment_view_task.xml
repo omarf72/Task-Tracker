@@ -8,46 +8,77 @@
     android:orientation="vertical"
     tools:context=".AddTaskFragment">
 
+
     <TextView
         android:id="@+id/task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Task :" />
+        android:layout_marginTop="35dp"
+        android:text="Task:" />
 
+    <TextView
+        android:id="@+id/taskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Urgent"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:text="Urgent:" />
+
+    <TextView
+        android:id="@+id/urgency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/due_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Due" />
+        android:text="Due:" />
+
+    <TextView
+        android:id="@+id/dueDateInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/hours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Hours" />
+        android:text="Hours:" />
+
+    <TextView
+        android:id="@+id/hoursToComplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/people"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="People" />
+        android:text="People:" />
+
+    <TextView
+        android:id="@+id/peopleInvolved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Location" />
+        android:text="Location:" />
+
+    <TextView
+        android:id="@+id/locationOfEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/Notes"
@@ -58,9 +89,23 @@
         android:textAlignment="inherit" />
 
 
+    <TextView
+        android:id="@+id/notesOfTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/markComplete"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="150dp"
+        android:text="Mark Task Complete" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:orientation="horizontal" >
 
         <Button
@@ -78,6 +123,9 @@
             android:layout_marginTop="300dp"
             android:layout_marginLeft="10dp"
             android:text="Save" />
+=======
+        android:orientation="horizontal">
+>>>>>>> 32edde1a4e7e42d05399fc33166db1e2d7a7fc08
 
     </LinearLayout>
 

@@ -1,10 +1,10 @@
 package com.example.tasktracker
 
 import android.util.Log
-import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
@@ -18,7 +18,7 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
 
     val allTasks: LiveData<List<Task>> = taskInfoDao.getAllTasks()
 
-    fun addTask(task: String, dueDate: String, hours: EditText?, people: String, location: String, notes: String, urgency: String){
+    fun addTask(task: String, dueDate: String, hours: String, people: String, location: String, notes: String, urgency: String){
             val newTask = getNewItemEntry(task,dueDate,hours,people,location,notes,urgency)
 
         viewModelScope.launch {
@@ -33,6 +33,16 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
         }
     }
 
+    fun getTaskById(taskId: Int): LiveData<Task?> {
+        return taskInfoDao.getTaskById(taskId).asLiveData()
+    }
+
+    fun deleteTask(task: Task) {
+        viewModelScope.launch {
+            taskInfoDao.delete(task)
+        }
+    }
+
     private fun insertItem(newTask:Task){
         viewModelScope.launch{
             taskInfoDao.insert(newTask)
@@ -42,7 +52,7 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
     private fun getNewItemEntry(
         task:String,
         dueDate: String,
-        hours: EditText?,
+        hours: String,
         people: String,
         location: String,
         notes: String,
@@ -66,11 +76,11 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
         return true
     }
 
-    class TasksViewModelFactory(private val taskInfoDao:TaskInfoDao):ViewModelProvider.Factory{
-        override fun <T: ViewModel> create(modelClass: Class<T>): T{
-            if(modelClass.isAssignableFrom(TasksDataViewModel::class.java)){
+    class TasksViewModelFactory(private val taskInfoDao: TaskInfoDao): ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(TasksDataViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return TasksDataViewModel(taskInfoDao)as T
+                return TasksDataViewModel(taskInfoDao) as T
             }
             throw IllegalArgumentException("Unknown ViewModel Class")
         }

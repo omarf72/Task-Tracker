@@ -76,23 +76,27 @@ class AddTaskFragment : Fragment() {
 
     private fun addTask(){
         if(isEntryValid()){
-            Log.d("AddTaskFragment","Adding task")
-            viewModel.addTask(binding?.task?.text.toString(),
-                binding?.dueDate?.text.toString(),binding?.hours,
-                binding?.people.toString(), binding?.location.toString(),
-                binding?.notes.toString(), binding?.notes.toString())
+
+            Log.d("AddTaskFragment", "Adding task")
+            val taskName = binding?.task?.text.toString()
+            val dueDate = binding?.dueDate?.text.toString()
+            val hours = binding?.hours?.text.toString()
+            val people = binding?.people?.text.toString()
+            val location = binding?.location?.text.toString()
+            val notes = binding?.notes?.text.toString()
+            val urgency = binding?.urgent?.text.toString()
+
+            viewModel.addTask(taskName, dueDate, hours, people, location, notes, urgency)
+
             Log.d("AddTaskFragment", "Task added successfully")
-
-
-
-        }
-        else {
+        } else {
             Log.w("AddTaskFragment", "Invalid entry detected")
         }
 
-        val action=AddTaskFragmentDirections.actionAddtaskFragmentToHomeFragment()
+        val action = AddTaskFragmentDirections.actionAddtaskFragmentToHomeFragment()
         findNavController().navigate(action)
     }
+
 
 
 
