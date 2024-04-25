@@ -33,18 +33,21 @@
                     android:id="@+id/task"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
                     android:text="@string/task" />
 
                 <TextView
                     android:id="@+id/due_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
                     android:text="@string/due" />
 
                 <TextView
                     android:id="@+id/urgent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
                     android:text="@string/urgent" />
 
             </LinearLayout>

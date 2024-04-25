@@ -14,8 +14,6 @@ import com.example.tasktracker.databinding.FragmentAddTaskBinding
 class AddTaskFragment : Fragment() {
 
 
-
-
     private var _binding: FragmentAddTaskBinding?=null
 
     private val binding get()=  _binding

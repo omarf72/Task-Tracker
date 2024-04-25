@@ -15,7 +15,7 @@ class ViewTaskFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var viewModel: TasksDataViewModel
     private lateinit var viewModelFactory: TasksDataViewModel.TasksViewModelFactory
-    private var currentTask: Task? = null  // Add this line to hold the current task
+    private var currentTask: Task? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
