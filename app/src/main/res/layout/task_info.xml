@@ -2,11 +2,17 @@
 <layout>
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.example.tasktracker.TaskViewModel" />
-
+            type="com.example.tasktracker.TasksDataViewModel" />
+        
+        <variable
+            name="isUrgent"
+            type="String" />
     </data>
+
+
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -16,18 +22,9 @@
         tools:context=".MainActivity">
 
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:paddingTop="40dp"
-            android:text="TextView" />
-
-
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
+            android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp">
 
@@ -38,22 +35,25 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/task_id"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/task"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Task: " />
+                    android:textSize="20sp"
+                    android:text="@string/task" />
 
                 <TextView
                     android:id="@+id/due_date"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Due: " />
+                    android:textSize="20sp"
+                    android:text="@string/due" />
 
                 <TextView
                     android:id="@+id/urgent"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Urgent: " />
+                    android:textSize="20sp"
+                    android:text="@string/urgent" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

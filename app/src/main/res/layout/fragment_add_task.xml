@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <data>
+
+    <variable
+        name="isUrgentChecked"
+        type="Boolean"/>
+
+    </data>
+
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,11 +17,14 @@
     android:orientation="vertical"
     tools:context=".AddTaskFragment">
 
+
     <EditText
         android:id="@+id/task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task :" />
+        android:layout_marginTop="40dp"
+        android:hint="Task"
+        />
 
 
 
@@ -20,37 +33,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Due" />
+        android:hint="Due Date"
+        />
+
 
     <EditText
         android:id="@+id/hours"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Hours" />
+        android:hint="Hours" />
 
     <EditText
         android:id="@+id/people"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="People" />
+        android:hint="People" />
 
     <EditText
         android:id="@+id/location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Location" />
+        android:hint="Location" />
 
     <EditText
-        android:id="@+id/Notes"
+        android:id="@+id/notes"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
-        android:text="Notes:"
+        android:hint="Notes:"
         android:textAlignment="inherit" />
 
 
@@ -59,8 +74,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Urgent:"
+        android:checked="@{isUrgentChecked}"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layoutDirection="rtl" />
 
     <LinearLayout
@@ -68,24 +84,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/edit"
-            android:layout_width="174dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="25dp"
-            android:text="Edit" />
-
-        <Button
-            android:id="@+id/save"
-            android:layout_width="157dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="10dp"
-
-            android:text="Save" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Save" />
 
 
 </LinearLayout>
+</layout>

@@ -10,18 +10,21 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 
+
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         setContentView(R.layout.activity_main)
-
         val toolbar=findViewById<MaterialToolbar>(R.id.tool_bar)
         setSupportActionBar(toolbar)
         val navController=findNavController(R.id.nav_host_fragment)
         val config=AppBarConfiguration(navController.graph)
         toolbar.setupWithNavController(navController)
+
+
 
     }
 
@@ -36,10 +39,5 @@ class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
     }
-
-
-
-
-
 
 }

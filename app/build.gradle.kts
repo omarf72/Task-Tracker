@@ -3,7 +3,7 @@ plugins {
     id ("org.jetbrains.kotlin.android".toString())
     id("androidx.navigation.safeargs.kotlin".toString())
     id ("kotlin-kapt")
-
+    id ("kotlin-parcelize")
 
 
 }
@@ -54,6 +54,10 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
+<<<<<<< HEAD
+=======
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+>>>>>>> 812622df9ade40da009c7365c2ec8f34e5f889b3
     //implementation(libs.androidx.room.common)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -63,4 +67,7 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.6.1")
     kapt ("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
+
+
 }
