@@ -10,9 +10,9 @@ data class Task(
     @ColumnInfo(name = "taskName")
     var task: String,
     @ColumnInfo(name = "dueDate")
-    val dueDate: String,
+    var dueDate: String,
     @ColumnInfo(name = "hours")
-    val hours: Int?,
+    val hours: String?,
     @ColumnInfo(name = "people")
     val people: String?,
     @ColumnInfo(name = "location")
@@ -20,7 +20,7 @@ data class Task(
     @ColumnInfo(name = "notes")
     val notes: String?,
     @ColumnInfo(name = "urgency")
-    val urgent: Boolean
+    var urgent: String
 )
 
 
