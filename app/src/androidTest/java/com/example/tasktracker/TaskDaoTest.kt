@@ -3,12 +3,14 @@ package com.example.tasktracker
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
@@ -18,7 +20,11 @@ import java.io.IOException
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
+@get:Rule
+val activityRule = ActivityScenarioRule(MainActivity::class.java)
 @RunWith(AndroidJUnit4::class)
+
 class TaskDaoTest {
     private lateinit var taskDao: TaskInfoDao
     private lateinit var taskDatabase: TaskDatabase
