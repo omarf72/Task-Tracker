@@ -3,12 +3,14 @@ package com.example.tasktracker
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
@@ -18,14 +20,18 @@ import java.io.IOException
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
+@get:Rule
+val activityRule = ActivityScenarioRule(MainActivity::class.java)
 @RunWith(AndroidJUnit4::class)
+
 class TaskDaoTest {
     private lateinit var taskDao: TaskInfoDao
     private lateinit var taskDatabase: TaskDatabase
-    private var task = Task(1, "SER Final", "3/23/24", "4","myself",
-        "library","go over slides","yes")
-    private var task2 = Task(2, "CSC Final Assignment", "3/27/24", "4","josh",
-        "library","go over slides","no")
+    private var task = Task(1, "Final GDD Project", "5/10/24", "4"," ",
+        " "," ",true)
+    private var task2 = Task(2, "CSC Final Assignment", "5/10/24", "4","josh",
+        "library"," ",false)
 
     @Before
     fun createDb() {
@@ -61,8 +67,10 @@ class TaskDaoTest {
     fun daoGetAllItems_returnsAllItemsFromDB() = runBlocking {
         addTwoItemsToDb()
         val allItems = taskDao.getTask().first()
-        assertEquals(allItems[0], task)
-        assertEquals(allItems[1], task2)
+        val sortedItems = allItems.sortedWith(compareBy { it.taskId })
+
+        assertEquals(sortedItems[0], task)
+        assertEquals(sortedItems[1], task2)
     }
     @After
     @Throws(IOException::class)

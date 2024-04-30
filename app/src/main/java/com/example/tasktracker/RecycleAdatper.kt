@@ -56,8 +56,8 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
     inner class MyViewHolder(private var binding: TaskInfoBinding)
         : RecyclerView.ViewHolder(binding.root){
             fun bind(task:Task){
-                binding.task.text=task.task
-                binding.dueDate.text=task.dueDate
+                binding.task.text="Task: ${task.task}"
+                binding.dueDate.text= "Due Date: ${task.dueDate}"
                 binding.urgent.text = "Urgent: ${if (task.urgent) "Yes" else "No"}"
 
 
