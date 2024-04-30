@@ -6,13 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-
 import androidx.fragment.app.activityViewModels
-
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tasktracker.databinding.FragmentAddTaskBinding
 import com.example.tasktracker.databinding.FragmentHomeBinding
 
 
@@ -30,11 +27,6 @@ class HomeFragment : Fragment() {
 
     private var _binding:FragmentHomeBinding?=null
 
-    private var _addTaskBinding:FragmentAddTaskBinding?=null
-
-
-
-    private val addTaskBinding get()= _addTaskBinding
 
 
 
@@ -59,21 +51,11 @@ class HomeFragment : Fragment() {
 
         return view
     }
-    private fun deleteAll(){
-        viewModel.deleteAllTasks()
-    }
+
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding?.delete?.setOnClickListener{
-            deleteAll()
-        }
-
-
-
-
 
 
         recycleView = (_binding!!).recyleview
@@ -81,14 +63,19 @@ class HomeFragment : Fragment() {
         recycleView.layoutManager = LinearLayoutManager(requireContext())
         recycleView.adapter = recycleAdapter
 
-        viewModel.allTasks.observe(viewLifecycleOwner) { tasks ->
+
+        viewModel.getAllTasksSortedByUrgency().observe(viewLifecycleOwner) { tasks ->
             tasks?.let {
                 recycleAdapter.setList(it as ArrayList<Task>)
             }
+        }
+
+        viewModel.getTotalHours().observe(viewLifecycleOwner) { totalHours ->
+            binding?.totalHours?.text = "Total Hours Needed: $totalHours"
         }
 
 
 
     }
 
-    }
+}

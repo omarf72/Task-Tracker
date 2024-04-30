@@ -34,6 +34,11 @@ interface TaskInfoDao {
     @Query("DELETE FROM tasks")
     suspend fun deleteAllTasks()
 
+    @Query("SELECT * FROM tasks ORDER BY urgency DESC")
+    fun getAllTasksSortedByUrgency(): LiveData<List<Task>>
 
+
+    @Query("SELECT SUM(hours) FROM tasks")
+    fun getTotalHoursNeeded(): LiveData<Int>
 
 }

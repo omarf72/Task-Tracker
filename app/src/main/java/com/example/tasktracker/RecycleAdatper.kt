@@ -45,7 +45,6 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val current=taskList.get(position)
-        //holder.bind(position)
         holder.bind(current)
     }
 
@@ -59,7 +58,8 @@ class RecyclerAdapter(val context: Context, var navController : NavController) :
             fun bind(task:Task){
                 binding.task.text=task.task
                 binding.dueDate.text=task.dueDate
-                binding.urgent.text
+                binding.urgent.text = "Urgent: ${if (task.urgent) "Yes" else "No"}"
+
 
                 itemView.setOnClickListener {
                     val action = HomeFragmentDirections.actionHomeFragmentToViewTaskFragment(task.taskId)

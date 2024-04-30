@@ -20,7 +20,7 @@ data class Task(
     @ColumnInfo(name = "notes")
     val notes: String?,
     @ColumnInfo(name = "urgency")
-    var urgent: String
+    var urgent: Boolean
 )
 
 

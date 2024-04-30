@@ -1,7 +1,7 @@
 package com.example.tasktracker
 
-import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
@@ -18,15 +18,31 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
 
     val allTasks: LiveData<List<Task>> = taskInfoDao.getAllTasks()
 
-    fun addTask(task: String, dueDate: String, hours: String, people: String, location: String, notes: String, urgency: String){
-            val newTask = getNewItemEntry(task,dueDate,hours,people,location,notes,urgency)
+    val isUrgent = MutableLiveData<Boolean>(false)
 
+    private val _totalHoursNeeded = MutableLiveData<Int>()
+    val totalHoursNeeded: LiveData<Int>
+        get() = _totalHoursNeeded
+
+    fun addTask(task: String, dueDate: String, hours: String, people: String, location: String, notes: String, isUrgent: Boolean) {
         viewModelScope.launch {
-            Log.d("TasksDataViewModel",newTask.task)
+            val newTask = getNewItemEntry(task, dueDate, hours, people, location, notes, isUrgent)
             taskInfoDao.insert(newTask)
+            //calculateTotalHoursNeeded() // Update total hours after adding a task
         }
-
     }
+
+    fun getAllTasksSortedByUrgency(): LiveData<List<Task>> {
+        return taskInfoDao.getAllTasksSortedByUrgency()
+    }
+
+
+    fun getTotalHours():LiveData<Int>{
+        return taskInfoDao.getTotalHoursNeeded()
+    }
+
+
+
     fun deleteAllTasks() {
         viewModelScope.launch {
             taskInfoDao.deleteAllTasks()
@@ -56,8 +72,9 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
         people: String,
         location: String,
         notes: String,
-        urgency: String
+        isUrgent: Boolean
     ):Task{
+
         return(
                 Task(
                     task =task,
@@ -66,7 +83,7 @@ class TasksDataViewModel(private val taskInfoDao: TaskInfoDao) : ViewModel() {
                     people = people,
                     location = location,
                     notes =notes,
-                    urgent =urgency
+                    urgent = isUrgent
                 ))
     }
     fun isEntryValid(taskName:String,taskDueDate:String,taskHours:String,taskUrgent:String):Boolean{

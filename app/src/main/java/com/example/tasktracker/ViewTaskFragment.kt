@@ -1,10 +1,10 @@
 package com.example.tasktracker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tasktracker.databinding.FragmentViewTaskBinding
@@ -42,6 +42,8 @@ class ViewTaskFragment : Fragment() {
             currentTask?.let {
                 viewModel.deleteTask(it)
                 navigateHome()
+
+
             }
         }
     }
@@ -49,7 +51,7 @@ class ViewTaskFragment : Fragment() {
     private fun bindTask(task: Task?) {
         task?.let {
             binding.taskName.text = it.task
-            binding.urgency.text = it.urgent
+            binding.urgency.text = it.urgent.toString()
             binding.dueDateInfo.text = it.dueDate
             binding.hoursToComplete.text = it.hours
             binding.peopleInvolved.text = it.people
