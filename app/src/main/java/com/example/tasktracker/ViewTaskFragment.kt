@@ -52,12 +52,14 @@ class ViewTaskFragment : Fragment() {
     private fun bindTask(task: Task?) {
         task?.let {
             binding.taskName.text = it.task
-            binding.urgency.text = it.urgent.toString()
+            binding.urgency.text = if (it.urgent)"Yes" else "No"
             binding.dueDateInfo.text = it.dueDate
             binding.hoursToComplete.text = it.hours
             binding.peopleInvolved.text = it.people
             binding.locationOfEvent.text = it.location
             binding.notesOfTask.text = it.notes
+
+            //binding.urgent.text = "Urgent: ${if (task.urgent) "Yes" else "No"}"
         }
     }
 
