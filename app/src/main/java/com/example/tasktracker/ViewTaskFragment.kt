@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -51,17 +52,21 @@ class ViewTaskFragment : Fragment() {
     private fun bindTask(task: Task?) {
         task?.let {
             binding.taskName.text = it.task
-            binding.urgency.text = it.urgent.toString()
+            binding.urgency.text = if (it.urgent)"Yes" else "No"
             binding.dueDateInfo.text = it.dueDate
             binding.hoursToComplete.text = it.hours
             binding.peopleInvolved.text = it.people
             binding.locationOfEvent.text = it.location
             binding.notesOfTask.text = it.notes
+
+            //binding.urgent.text = "Urgent: ${if (task.urgent) "Yes" else "No"}"
         }
     }
 
     private fun navigateHome() {
         findNavController().navigate(R.id.action_viewTaskFragment_to_homeFragment)
+        Toast.makeText(activity, "Task Marked Complete", Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onDestroyView() {

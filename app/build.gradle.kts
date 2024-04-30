@@ -4,9 +4,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin".toString())
     id ("kotlin-kapt")
     id ("kotlin-parcelize")
-
-
-
+    //alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
 android {
