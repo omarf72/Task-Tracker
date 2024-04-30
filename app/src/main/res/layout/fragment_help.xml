@@ -25,14 +25,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Task Tracker is designed primarily with students in mind and is to help you manage your daily tasks. With features that allow you to add, view, and categorize tasks based on urgency, this app keeps you organized and helps you never miss a deadline. Whether you're planning your day or scheduling time for important assignments, Task Tracker makes it simple and effective."
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:paddingBottom="16dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FAQs"
-                android:textSize="20sp"
+                android:textSize="23sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="How do I add a new task?"
                 android:textStyle="bold"
+                android:textSize="20sp"
                 android:paddingTop="16dp"/>
 
             <TextView
@@ -48,7 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="To add a new task, click the plus icon on the top of the screen in the toolbar."
-                android:paddingLeft="16dp"/>
+                android:paddingLeft="16dp"
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/question_delete_task"
@@ -56,14 +58,16 @@
                 android:layout_height="wrap_content"
                 android:text="How do I delete a task?"
                 android:textStyle="bold"
-                android:paddingTop="16dp"/>
+                android:textSize="20sp"
+                android:paddingTop="16dp" />
 
             <TextView
                 android:id="@+id/answer_delete_task"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="To delete a task, click on the task in the home screen and then mark it as complete using the button at the bottom of the screen."
-                android:paddingLeft="16dp"/>
+                android:paddingLeft="16dp"
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/question_categorize_task"
@@ -71,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:text="How do I categorize tasks?"
                 android:textStyle="bold"
+                android:textSize="20sp"
                 android:paddingTop="16dp"/>
 
             <TextView
@@ -78,7 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="You can categorize tasks by inputting them as urgent. If so, they will come up first in the home screen."
-                android:paddingLeft="16dp"/>
+                android:paddingLeft="16dp"
+                android:textSize="18sp"/>
 
         </LinearLayout>
 </FrameLayout>
