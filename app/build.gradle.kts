@@ -55,6 +55,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.espresso.idling.resource)
+    implementation(libs.androidx.espresso.contrib)
 
     //implementation(libs.androidx.room.common)
     testImplementation("junit:junit:4.13.2")
